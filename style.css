@@ -236,3 +236,8 @@ footer {
     font-size: 1.8rem;
   }
 }
+.logo {
+  max-width: 180px;
+  display: block;
+  margin: 0 auto 20px auto;
+}
