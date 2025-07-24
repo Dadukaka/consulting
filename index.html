@@ -8,151 +8,681 @@
   <meta name="keywords" content="Brampton restaurant consulting, GTA restaurant consulting, restaurant menu optimization, Uber Eats optimization Brampton, Skip The Dishes consulting, restaurant profit consulting, menu psychology GTA">
   <meta name="author" content="APRA Consulting">
   <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
-    body { font-family: 'Inter', sans-serif; }
+    :root {
+      --primary-blue: #1e3a8a;
+      --accent-orange: #f97316;
+      --warm-beige: #fef7ed;
+      --text-dark: #1f2937;
+      --text-light: #6b7280;
+      --success-green: #059669;
+      --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+      --gradient-warm: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+    }
+    
+    body { 
+      font-family: 'Inter', sans-serif; 
+      scroll-behavior: smooth;
+    }
+    
+    .font-display { font-family: 'Playfair Display', serif; }
+    
     .sticky { position: sticky; top: 0; z-index: 50; }
-    .blush-bg { background-color: #FFF9F6; }
-    .hero-text-shadow { text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); }
-    section { padding-top: 5rem; padding-bottom: 5rem; } /* Increased white space */
-    .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
-    .shadow-soft { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); } /* Softer shadows */
+    
+    .hero-gradient {
+      background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 50%, #fdba74 100%);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .hero-gradient::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23000" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23000" opacity="0.02"/><circle cx="50" cy="10" r="1" fill="%23000" opacity="0.02"/><circle cx="10" cy="50" r="1" fill="%23000" opacity="0.02"/><circle cx="90" cy="30" r="1" fill="%23000" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+      pointer-events: none;
+    }
+    
+    .glass-effect {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(10px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+    
+    .card-hover {
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+    }
+    
+    .btn-primary {
+      background: var(--gradient-primary);
+      color: white;
+      padding: 16px 32px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+    }
+    
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 15px 40px rgba(30, 58, 138, 0.4);
+    }
+    
+    .btn-secondary {
+      background: var(--accent-orange);
+      color: white;
+      padding: 14px 28px;
+      border-radius: 50px;
+      font-weight: 600;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: all 0.3s ease;
+      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+    }
+    
+    .btn-secondary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.4);
+      background: #ea580c;
+    }
+    
+    .section-padding { padding: 100px 0; }
+    
+    .container-custom { 
+      max-width: 1200px; 
+      margin: 0 auto; 
+      padding: 0 24px; 
+    }
+    
+    .text-gradient {
+      background: var(--gradient-primary);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    .nav-link {
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-link::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--accent-orange);
+      transition: width 0.3s ease;
+    }
+    
+    .nav-link:hover::after {
+      width: 100%;
+    }
+    
+    .stats-counter {
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--primary-blue);
+    }
+    
+    .pricing-card {
+      position: relative;
+      background: white;
+      border-radius: 20px;
+      padding: 40px 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s ease;
+      border: 2px solid transparent;
+    }
+    
+    .pricing-card.featured {
+      background: var(--gradient-primary);
+      color: white;
+      transform: scale(1.05);
+      border-color: var(--accent-orange);
+    }
+    
+    .pricing-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+    }
+    
+    .feature-icon {
+      width: 60px;
+      height: 60px;
+      background: var(--gradient-primary);
+      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    .testimonial-card {
+      background: white;
+      border-radius: 20px;
+      padding: 30px;
+      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 10px;
+      left: 20px;
+      font-size: 80px;
+      color: var(--accent-orange);
+      opacity: 0.3;
+      font-family: 'Playfair Display', serif;
+    }
+    
+    .mobile-menu {
+      display: none;
+    }
+    
+    @media (max-width: 768px) {
+      .hero-gradient h1 {
+        font-size: 2.5rem;
+      }
+      
+      .section-padding {
+        padding: 60px 0;
+      }
+      
+      .container-custom {
+        padding: 0 16px;
+      }
+      
+      .pricing-card.featured {
+        transform: none;
+      }
+      
+      .mobile-menu {
+        display: block;
+      }
+      
+      .desktop-menu {
+        display: none;
+      }
+    }
+    
+    .floating-elements {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      pointer-events: none;
+    }
+    
+    .floating-elements::before,
+    .floating-elements::after {
+      content: '';
+      position: absolute;
+      width: 200px;
+      height: 200px;
+      background: rgba(249, 115, 22, 0.1);
+      border-radius: 50%;
+      animation: float 6s ease-in-out infinite;
+    }
+    
+    .floating-elements::before {
+      top: 10%;
+      right: 10%;
+      animation-delay: 0s;
+    }
+    
+    .floating-elements::after {
+      bottom: 10%;
+      left: 10%;
+      animation-delay: 3s;
+    }
+    
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    .fade-in {
+      opacity: 0;
+      transform: translateY(30px);
+      transition: all 0.6s ease;
+    }
+    
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
   </style>
 </head>
-<body class="blush-bg">
+<body class="bg-gray-50">
   <!-- Navigation -->
-  <nav class="bg-blue-900 text-white p-6 sticky">
-    <div class="container flex justify-between items-center">
-      <h1 class="text-2xl font-bold">APRA Consulting</h1>
-      <ul class="flex space-x-8">
-        <li><a href="#home" class="hover:text-gray-300">Home</a></li>
-        <li><a href="#services" class="hover:text-gray-300">Services</a></li>
-        <li><a href="#about" class="hover:text-gray-300">About</a></li>
-        <li><a href="#case-studies" class="hover:text-gray-300">Case Studies</a></li>
-        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
-      </ul>
+  <nav class="bg-white shadow-lg sticky top-0 z-50">
+    <div class="container-custom">
+      <div class="flex justify-between items-center py-4">
+        <div class="flex items-center space-x-3">
+          <img src="logo.jpg" alt="APRA Consulting" class="h-12 w-12 rounded-full object-cover">
+          <h1 class="text-2xl font-bold text-gradient font-display">APRA Consulting</h1>
+        </div>
+        
+        <!-- Desktop Menu -->
+        <ul class="desktop-menu flex space-x-8">
+          <li><a href="#home" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a></li>
+          <li><a href="#services" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Services</a></li>
+          <li><a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a></li>
+          <li><a href="#case-studies" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Case Studies</a></li>
+          <li><a href="#contact" class="btn-secondary">Get Started <i class="fas fa-arrow-right"></i></a></li>
+        </ul>
+        
+        <!-- Mobile Menu Button -->
+        <button class="mobile-menu text-gray-700 text-2xl">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
     </div>
   </nav>
 
   <!-- Hero Section -->
-  <section id="home" class="blush-bg py-24 text-center">
-    <div class="container">
-      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-yellow-500">Unlock Hidden Profits in Your Brampton Restaurant</h1>
-      <p class="text-xl mb-8 text-gray-900 hero-text-shadow">Boost sales by 15–30% with menu optimization, Uber Eats/Skip The Dishes strategies, and smart operations.</p>
-      <a href="#contact" class="bg-yellow-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600">Get Your Free Restaurant Health Snapshot</a>
+  <section id="home" class="hero-gradient section-padding relative">
+    <div class="floating-elements"></div>
+    <div class="container-custom text-center relative z-10">
+      <div class="fade-in">
+        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900 font-display leading-tight">
+          Unlock Hidden Profits in Your <span class="text-gradient">Brampton Restaurant</span>
+        </h1>
+        <p class="text-xl mb-8 text-gray-700 max-w-3xl mx-auto leading-relaxed">
+          Boost sales by <strong>15–30%</strong> with proven menu optimization, delivery platform strategies, and smart operations that actually work.
+        </p>
+        
+        <!-- Stats Bar -->
+        <div class="grid grid-cols-3 gap-8 mb-10 max-w-2xl mx-auto">
+          <div class="text-center">
+            <div class="stats-counter">15-30%</div>
+            <div class="text-sm text-gray-600 font-medium">Sales Increase</div>
+          </div>
+          <div class="text-center">
+            <div class="stats-counter">50+</div>
+            <div class="text-sm text-gray-600 font-medium">Restaurants Helped</div>
+          </div>
+          <div class="text-center">
+            <div class="stats-counter">24h</div>
+            <div class="text-sm text-gray-600 font-medium">Response Time</div>
+          </div>
+        </div>
+        
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+          <a href="#contact" class="btn-primary">
+            <i class="fas fa-chart-line"></i>
+            Get Your Free Restaurant Health Snapshot
+          </a>
+          <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium flex items-center gap-2">
+            <i class="fas fa-play-circle"></i>
+            See How It Works
+          </a>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Services Section -->
-  <section id="services" class="py-24 blush-bg">
-    <div class="container text-center">
-      <h2 class="text-3xl font-bold mb-8">Our Consulting Packages</h2>
-      <p class="text-lg mb-12">Tailored for GTA & Brampton restaurants to boost profits and stand out. Prices subject to customization based on your needs.</p>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+  <section id="services" class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold mb-6 font-display text-gray-900">Our Consulting Packages</h2>
+        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+          Tailored for GTA & Brampton restaurants to boost profits and stand out. 
+          Prices subject to customization based on your needs.
+        </p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
         <!-- The Foundation -->
-        <div class="border p-8 rounded-lg shadow-soft">
-          <h3 class="text-2xl font-bold mb-4">The Foundation</h3>
-          <p class="text-lg font-semibold">$349 CAD</p>
-          <p class="mb-4">Quick check-up to spot opportunities.</p>
-          <ul class="text-left space-y-2">
-            <li>✅ Competitor Research & Business Health Check</li>
-            <li>✅ Customer Sentiment Analysis</li>
+        <div class="pricing-card card-hover fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-foundation"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 font-display">The Foundation</h3>
+          <div class="text-3xl font-bold text-blue-600 mb-2">$349 <span class="text-lg font-normal text-gray-500">CAD</span></div>
+          <p class="text-gray-600 mb-6">Quick check-up to spot opportunities.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Competitor Research & Business Health Check</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Customer Sentiment Analysis</span>
+            </li>
           </ul>
-          <a href="#contact" class="mt-6 inline-block bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Get Started</a>
+          <a href="#contact" class="btn-secondary w-full justify-center">Get Started</a>
         </div>
+        
         <!-- The Growth Engine -->
-        <div class="border p-8 rounded-lg shadow-soft bg-blue-50">
-          <h3 class="text-2xl font-bold mb-4">The Growth Engine</h3>
-          <p class="text-lg font-semibold">$799 CAD</p>
-          <p class="mb-4">Our most popular pick to boost sales.</p>
-          <ul class="text-left space-y-2">
-            <li>✅ All Foundation Services</li>
-            <li>✅ Menu Audit & Optimization</li>
-            <li>✅ Visual/Marketing Guidance</li>
-            <li>✅ Digital Ordering Optimization (Uber Eats, Skip The Dishes, DoorDash)</li>
-            <li>✅ Social Media Content Calendar (1 Month)</li>
-            <li>✅ Observation Study (2 hours, $100/hr)</li>
+        <div class="pricing-card featured card-hover fade-in">
+          <div class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg rounded-tr-lg text-sm font-bold">
+            MOST POPULAR
+          </div>
+          <div class="feature-icon bg-white text-blue-600">
+            <i class="fas fa-rocket"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 font-display">The Growth Engine</h3>
+          <div class="text-3xl font-bold mb-2">$799 <span class="text-lg font-normal opacity-80">CAD</span></div>
+          <p class="opacity-90 mb-6">Our most popular pick to boost sales.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
+              <span>All Foundation Services</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
+              <span>Menu Audit & Optimization</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
+              <span>Visual/Marketing Guidance</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
+              <span>Digital Ordering Optimization</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
+              <span>Social Media Content Calendar</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
+              <span>Observation Study (2 hours)</span>
+            </li>
           </ul>
-          <a href="#contact" class="mt-6 inline-block bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Get Started</a>
+          <a href="#contact" class="btn-secondary w-full justify-center bg-white text-blue-600 hover:bg-gray-100">Get Started</a>
         </div>
+        
         <!-- The Strategic Partner -->
-        <div class="border p-8 rounded-lg shadow-soft">
-          <h3 class="text-2xl font-bold mb-4">The Strategic Partner</h3>
-          <p class="text-lg font-semibold">$1,499–$2,199 CAD</p>
-          <p class="mb-4">Full overhaul for market dominance.</p>
-          <ul class="text-left space-y-2">
-            <li>✅ All Growth Engine Services</li>
-            <li>✅ Revenue Loss/Opportunity Estimation</li>
-            <li>✅ Full Strategy Action Plan</li>
-            <li>✅ Financial Management Tools</li>
-            <li>✅ Community Engagement Plan</li>
+        <div class="pricing-card card-hover fade-in">
+          <div class="feature-icon">
+            <i class="fas fa-crown"></i>
+          </div>
+          <h3 class="text-2xl font-bold mb-4 font-display">The Strategic Partner</h3>
+          <div class="text-3xl font-bold text-blue-600 mb-2">$1,499–$2,199 <span class="text-lg font-normal text-gray-500">CAD</span></div>
+          <p class="text-gray-600 mb-6">Full overhaul for market dominance.</p>
+          <ul class="space-y-3 mb-8">
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>All Growth Engine Services</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Revenue Loss/Opportunity Estimation</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Full Strategy Action Plan</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Financial Management Tools</span>
+            </li>
+            <li class="flex items-start gap-3">
+              <i class="fas fa-check-circle text-green-500 mt-1"></i>
+              <span>Community Engagement Plan</span>
+            </li>
           </ul>
-          <a href="#contact" class="mt-6 inline-block bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Get Started</a>
+          <a href="#contact" class="btn-secondary w-full justify-center">Get Started</a>
         </div>
       </div>
+      
       <!-- Add-Ons -->
-      <div class="mt-12">
-        <h3 class="text-2xl font-bold mb-6">Optional Add-Ons</h3>
-        <ul class="text-left max-w-2xl mx-auto space-y-2">
-          <li>Sensory Experience Consulting (Ambiance, Music, Plating): $400</li>
-          <li>SEO Setup: $300</li>
-          <li>Loyalty Program Setup: $400</li>
-          <li>Bottleneck Improvement Suggestions: $200</li>
-          <li>Extended Social Media Management (3 Months): $800</li>
-          <li>Additional Observation Study Hours: $100/hr</li>
-          <li>Menu Analytics Report (Uber Eats, Skip The Dishes, DoorDash): $150</li>
-        </ul>
+      <div class="bg-gray-50 rounded-3xl p-8 fade-in">
+        <h3 class="text-3xl font-bold mb-6 text-center font-display text-gray-900">Optional Add-Ons</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
+          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
+            <span class="font-medium">Sensory Experience Consulting</span>
+            <span class="font-bold text-blue-600">$400</span>
+          </div>
+          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
+            <span class="font-medium">SEO Setup</span>
+            <span class="font-bold text-blue-600">$300</span>
+          </div>
+          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
+            <span class="font-medium">Loyalty Program Setup</span>
+            <span class="font-bold text-blue-600">$400</span>
+          </div>
+          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
+            <span class="font-medium">Bottleneck Improvement</span>
+            <span class="font-bold text-blue-600">$200</span>
+          </div>
+          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
+            <span class="font-medium">Extended Social Media (3 Months)</span>
+            <span class="font-bold text-blue-600">$800</span>
+          </div>
+          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
+            <span class="font-medium">Menu Analytics Report</span>
+            <span class="font-bold text-blue-600">$150</span>
+          </div>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Case Studies Section -->
-  <section id="case-studies" class="py-24 blush-bg">
-    <div class="container text-center">
-      <h2 class="text-3xl font-bold mb-8">Real Results for Brampton Restaurants</h2>
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
-        <div class="p-8 bg-white rounded-lg shadow-soft">
-          <h3 class="text-xl font-bold mb-2">Local Brampton Restaurant</h3>
-          <p>Optimized their Uber Eats and Skip The Dishes menus, boosting online orders by 20% in three months.</p>
-          <p class="mt-2 italic">"APRA’s menu tweaks made our online orders soar!" – Local Owner</p>
+  <section id="case-studies" class="section-padding bg-gray-50">
+    <div class="container-custom">
+      <div class="text-center mb-16 fade-in">
+        <h2 class="text-4xl font-bold mb-6 font-display text-gray-900">Real Results for Brampton Restaurants</h2>
+        <p class="text-xl text-gray-600">Success stories from restaurants just like yours</p>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div class="testimonial-card card-hover fade-in">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center text-white font-bold">
+              L
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold text-gray-900">Local Brampton Restaurant</h3>
+              <div class="flex text-yellow-400">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+              </div>
+            </div>
+          </div>
+          <p class="text-gray-700 mb-4 relative z-10">
+            "Optimized their Uber Eats and Skip The Dishes menus, boosting online orders by 20% in three months. APRA's menu tweaks made our online orders soar!"
+          </p>
+          <div class="bg-green-100 p-3 rounded-lg">
+            <div class="text-2xl font-bold text-green-600">+20%</div>
+            <div class="text-sm text-green-700">Online Orders Increase</div>
+          </div>
         </div>
-        <div class="p-8 bg-white rounded-lg shadow-soft">
-          <h3 class="text-xl font-bold mb-2">Your Success Story</h3>
-          <p>We’re ready to help your restaurant achieve 15–30% sales growth with tailored solutions.</p>
-          <a href="#contact" class="mt-4 inline-block text-blue-900 underline">Get Your Free Snapshot</a>
+        
+        <div class="testimonial-card card-hover fade-in bg-gradient-to-br from-blue-600 to-blue-700 text-white">
+          <div class="flex items-center mb-4">
+            <div class="w-12 h-12 bg-white rounded-full flex items-center justify-center text-blue-600 font-bold">
+              Y
+            </div>
+            <div class="ml-4">
+              <h3 class="text-xl font-bold">Your Success Story</h3>
+              <div class="text-blue-200">Ready to be our next case study?</div>
+            </div>
+          </div>
+          <p class="mb-6 relative z-10">
+            We're ready to help your restaurant achieve 15–30% sales growth with tailored solutions designed specifically for Brampton restaurants.
+          </p>
+          <a href="#contact" class="btn-secondary bg-white text-blue-600 hover:bg-gray-100">
+            <i class="fas fa-rocket"></i>
+            Start Your Success Story
+          </a>
         </div>
       </div>
     </div>
   </section>
 
   <!-- About Section -->
-  <section id="about" class="py-24 blush-bg">
-    <div class="container text-center">
-      <h2 class="text-3xl font-bold mb-8">Why APRA Consulting?</h2>
-      <p class="text-lg max-w-2xl mx-auto mb-6">We’re Brampton locals who know the restaurant game inside out. Using menu psychology, customer behavior insights, and operational know-how, we help small and ethnic restaurants in the GTA boost profits by 15–30%. Our hands-on approach—tweaking Uber Eats/Skip The Dishes menus, spotting bottlenecks—delivers results without the fluff.</p>
-      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Brampton restaurant interior" class="mx-auto mt-6 rounded-lg shadow-soft max-w-md">
+  <section id="about" class="section-padding bg-white">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+        <div class="fade-in">
+          <h2 class="text-4xl font-bold mb-6 font-display text-gray-900">Why APRA Consulting?</h2>
+          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
+            We're Brampton locals who know the restaurant game inside out. Using menu psychology, customer behavior insights, and operational know-how, we help small and ethnic restaurants in the GTA boost profits by 15–30%.
+          </p>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Our hands-on approach—tweaking Uber Eats/Skip The Dishes menus, spotting bottlenecks—delivers results without the fluff.
+          </p>
+          
+          <div class="grid grid-cols-2 gap-6 mb-8">
+            <div class="text-center">
+              <div class="text-3xl font-bold text-blue-600 mb-2">5+ Years</div>
+              <div class="text-sm text-gray-600">Industry Experience</div>
+            </div>
+            <div class="text-center">
+              <div class="text-3xl font-bold text-blue-600 mb-2">Local</div>
+              <div class="text-sm text-gray-600">Brampton Expertise</div>
+            </div>
+          </div>
+          
+          <a href="#contact" class="btn-primary">
+            <i class="fas fa-handshake"></i>
+            Work With Us
+          </a>
+        </div>
+        
+        <div class="fade-in">
+          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+               alt="Modern restaurant interior" 
+               class="rounded-3xl shadow-2xl w-full h-auto object-cover">
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Contact Section -->
-  <section id="contact" class="py-24 bg-blue-900 text-white">
-    <div class="container text-center">
-      <h2 class="text-3xl font-bold mb-8">Get Your Free Restaurant Health Snapshot</h2>
-      <p class="text-lg mb-6">See how your restaurant can boost sales with a free 1-page report. No obligation, just insights.</p>
-      <form action="https://formspree.io/f/xdkzawpd" method="POST" class="max-w-lg mx-auto">
-        <input type="text" name="name" placeholder="Your Name" class="w-full p-3 mb-4 rounded border border-gray-300" required>
-        <input type="email" name="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded border border-gray-300" required>
-        <input type="text" name="restaurant" placeholder="Restaurant Name" class="w-full p-3 mb-4 rounded border border-gray-300" required>
-        <button type="submit" class="bg-yellow-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600">Send Me My Free Snapshot</button>
-      </form>
-      <p class="mt-6">Or email us at <a href="mailto:hello@apraconsulting.ca" class="underline">hello@apraconsulting.ca</a></p>
+  <section id="contact" class="section-padding bg-gradient-to-br from-blue-900 to-blue-800 text-white relative overflow-hidden">
+    <div class="absolute inset-0 bg-black opacity-10"></div>
+    <div class="container-custom relative z-10">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="text-4xl font-bold mb-6 font-display">Get Your Free Restaurant Health Snapshot</h2>
+        <p class="text-xl opacity-90 max-w-2xl mx-auto">
+          See how your restaurant can boost sales with a free 1-page report. No obligation, just insights.
+        </p>
+      </div>
+      
+      <div class="max-w-2xl mx-auto">
+        <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-3xl p-8 fade-in">
+          <form action="https://formspree.io/f/xdkzawpd" method="POST" class="space-y-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div>
+                <label class="block text-sm font-medium mb-2">Your Name</label>
+                <input type="text" name="name" required
+                       class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400">
+              </div>
+              <div>
+                <label class="block text-sm font-medium mb-2">Your Email</label>
+                <input type="email" name="email" required
+                       class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400">
+              </div>
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Restaurant Name</label>
+              <input type="text" name="restaurant" required
+                     class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400">
+            </div>
+            <div>
+              <label class="block text-sm font-medium mb-2">Tell us about your biggest challenge</label>
+              <textarea name="challenge" rows="4"
+                        class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400"
+                        placeholder="e.g., Low online orders, menu not converting, competitor pressure..."></textarea>
+            </div>
+            <button type="submit" class="w-full btn-secondary bg-orange-500 hover:bg-orange-600 justify-center text-lg py-4">
+              <i class="fas fa-paper-plane"></i>
+              Send Me My Free Snapshot
+            </button>
+          </form>
+        </div>
+        
+        <div class="text-center mt-8 fade-in">
+          <p class="text-lg opacity-90 mb-4">Or contact us directly:</p>
+          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+            <a href="mailto:hello@apraconsulting.ca" class="flex items-center gap-2 text-orange-300 hover:text-orange-200">
+              <i class="fas fa-envelope"></i>
+              hello@apraconsulting.ca
+            </a>
+            <a href="tel:+1234567890" class="flex items-center gap-2 text-orange-300 hover:text-orange-200">
+              <i class="fas fa-phone"></i>
+              (647) 123-4567
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
   </section>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white p-6 text-center">
-    <p>© 2025 APRA Consulting. All rights reserved.</p>
-    <p><a href="https://instagram.com/apraconsulting" class="underline">Follow us on Instagram</a></p>
+  <footer class="bg-gray-900 text-white py-12">
+    <div class="container-custom">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div>
+          <div class="flex items-center space-x-3 mb-4">
+            <img src="logo.jpg" alt="APRA Consulting" class="h-10 w-10 rounded-full object-cover">
+            <h3 class="text-xl font-bold font-display">APRA Consulting</h3>
+          </div>
+          <p class="text-gray-400">Helping Brampton & GTA restaurants boost profits through smart strategy and proven results.</p>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
+          <ul class="space-y-2">
+            <li><a href="#services" class="text-gray-400 hover:text-white">Our Services</a></li>
+            <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
+            <li><a href="#case-studies" class="text-gray-400 hover:text-white">Case Studies</a></li>
+            <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div>
+          <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
+          <div class="flex space-x-4">
+            <a href="https://instagram.com/apraconsulting" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-instagram"></i>
+            </a>
+            <a href="https://linkedin.com/company/apraconsulting" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-linkedin"></i>
+            </a>
+            <a href="https://facebook.com/apraconsulting" class="text-gray-400 hover:text-white text-xl">
+              <i class="fab fa-facebook"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+      
+      <div class="border-t border-gray-800 pt-8 text-center">
+        <p class="text-gray-400">© 2025 APRA Consulting. All rights reserved.</p>
+      </div>
+    </div>
   </footer>
 
   <script>
@@ -160,11 +690,82 @@
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
       anchor.addEventListener('click', function(e) {
         e.preventDefault();
-        document.querySelector(this.getAttribute('href')).scrollIntoView({
-          behavior: 'smooth'
-        });
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+          target.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
       });
     });
+
+    // Intersection Observer for fade-in animations
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, observerOptions);
+
+    document.querySelectorAll('.fade-in').forEach(el => {
+      observer.observe(el);
+    });
+
+    // Mobile menu toggle
+    const mobileMenuBtn = document.querySelector('.mobile-menu');
+    const desktopMenu = document.querySelector('.desktop-menu');
+    
+    mobileMenuBtn?.addEventListener('click', () => {
+      // Simple mobile menu implementation
+      alert('Mobile menu - would implement dropdown menu here');
+    });
+
+    // Counter animation for stats
+    const animateCounter = (element, target) => {
+      let current = 0;
+      const increment = target / 50;
+      const timer = setInterval(() => {
+        current += increment;
+        if (current >= target) {
+          element.textContent = target + (element.textContent.includes('%') ? '%' : '');
+          clearInterval(timer);
+        } else {
+          element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '');
+        }
+      }, 40);
+    };
+
+    // Animate stats when they come into view
+    const statsObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          const counters = entry.target.querySelectorAll('.stats-counter');
+          counters.forEach(counter => {
+            const text = counter.textContent;
+            if (text.includes('15-30')) {
+              counter.textContent = '15-30%';
+            } else if (text.includes('50')) {
+              animateCounter(counter, 50);
+            } else if (text.includes('24')) {
+              counter.textContent = '24h';
+            }
+          });
+          statsObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    const statsSection = document.querySelector('.grid.grid-cols-3');
+    if (statsSection) {
+      statsObserver.observe(statsSection);
+    }
   </script>
 </body>
 </html>
