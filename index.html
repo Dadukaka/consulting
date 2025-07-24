@@ -226,6 +226,14 @@
       .desktop-menu {
         display: none;
       }
+      
+      .desktop-menu.mobile-menu-open {
+        display: flex !important;
+      }
+      
+      nav {
+        position: relative;
+      }
     }
     
     .floating-elements {
@@ -282,7 +290,7 @@
     <div class="container-custom">
       <div class="flex justify-between items-center py-4">
         <div class="flex items-center space-x-3">
-          <img src="logo.jpg" alt="APRA Consulting" class="h-12 w-12 rounded-full object-cover">
+          <img src="apra-logo.jpg" alt="APRA Consulting" class="h-12 w-auto max-w-12 object-contain">
           <h1 class="text-2xl font-bold text-gradient font-display">APRA Consulting</h1>
         </div>
         
@@ -631,10 +639,6 @@
               <i class="fas fa-envelope"></i>
               hello@apraconsulting.ca
             </a>
-            <a href="tel:+1234567890" class="flex items-center gap-2 text-orange-300 hover:text-orange-200">
-              <i class="fas fa-phone"></i>
-              (647) 123-4567
-            </a>
           </div>
         </div>
       </div>
@@ -647,7 +651,7 @@
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
         <div>
           <div class="flex items-center space-x-3 mb-4">
-            <img src="logo.jpg" alt="APRA Consulting" class="h-10 w-10 rounded-full object-cover">
+            <img src="apra-logo.jpg" alt="APRA Consulting" class="h-10 w-auto max-w-10 object-contain">
             <h3 class="text-xl font-bold font-display">APRA Consulting</h3>
           </div>
           <p class="text-gray-400">Helping Brampton & GTA restaurants boost profits through smart strategy and proven results.</p>
@@ -723,8 +727,22 @@
     const desktopMenu = document.querySelector('.desktop-menu');
     
     mobileMenuBtn?.addEventListener('click', () => {
-      // Simple mobile menu implementation
-      alert('Mobile menu - would implement dropdown menu here');
+      // Toggle mobile menu visibility
+      desktopMenu.classList.toggle('mobile-menu-open');
+      if (desktopMenu.classList.contains('mobile-menu-open')) {
+        desktopMenu.style.display = 'block';
+        desktopMenu.style.position = 'absolute';
+        desktopMenu.style.top = '100%';
+        desktopMenu.style.left = '0';
+        desktopMenu.style.right = '0';
+        desktopMenu.style.backgroundColor = 'white';
+        desktopMenu.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
+        desktopMenu.style.flexDirection = 'column';
+        desktopMenu.style.padding = '1rem';
+        desktopMenu.style.gap = '1rem';
+      } else {
+        desktopMenu.style.display = 'none';
+      }
     });
 
     // Counter animation for stats
