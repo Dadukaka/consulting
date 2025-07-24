@@ -2,65 +2,169 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>APRA Consulting</title>
-  <link rel="stylesheet" href="style.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Brampton Restaurant Consulting | APRA Consulting</title>
+  <meta name="description" content="APRA Consulting helps Brampton & GTA restaurants boost profits by 15–30% with menu optimization, Uber Eats/Skip The Dishes strategies, and business health checks. Get a Free Restaurant Health Snapshot!">
+  <meta name="keywords" content="Brampton restaurant consulting, GTA restaurant consulting, restaurant menu optimization, Uber Eats optimization Brampton, Skip The Dishes consulting, restaurant profit consulting, menu psychology GTA">
+  <meta name="author" content="APRA Consulting">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    .sticky { position: sticky; top: 0; z-index: 50; }
+    .blush-bg { background-color: #FFF9F6; }
+    .hero-text-shadow { text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); }
+    section { padding-top: 5rem; padding-bottom: 5rem; } /* Increased white space */
+    .container { max-width: 1200px; margin-left: auto; margin-right: auto; padding-left: 2rem; padding-right: 2rem; }
+    .shadow-soft { box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05); } /* Softer shadows */
+  </style>
 </head>
-<body>
-  <header>
-   <img src="logo.jpg" alt="APRA Consulting Logo" class="logo">
+<body class="blush-bg">
+  <!-- Navigation -->
+  <nav class="bg-blue-900 text-white p-6 sticky">
+    <div class="container flex justify-between items-center">
+      <h1 class="text-2xl font-bold">APRA Consulting</h1>
+      <ul class="flex space-x-8">
+        <li><a href="#home" class="hover:text-gray-300">Home</a></li>
+        <li><a href="#services" class="hover:text-gray-300">Services</a></li>
+        <li><a href="#about" class="hover:text-gray-300">About</a></li>
+        <li><a href="#case-studies" class="hover:text-gray-300">Case Studies</a></li>
+        <li><a href="#contact" class="hover:text-gray-300">Contact</a></li>
+      </ul>
+    </div>
+  </nav>
 
-    <h1>Unlock Hidden Profits In Your Restaurant</h1>
-    <p>We help restaurant owners boost revenue without raising prices — using menu psychology, layout optimization, and behavior insights.</p>
-    <a href="#contact" class="cta-button">Book a Free 2-Point Menu Audit</a>
-  </header>
-
-  <section id="services">
-    <h2>What We Do</h2>
-    <ul>
-      <li>
-        <strong>Menu Psychology Audit</strong>
-        Find invisible pricing mistakes, item overload, and missed upsell triggers.
-      </li>
-      <li>
-        <strong>Customer Behavior Observations</strong>
-        Identify friction points in decision-making, order flow, or delivery menu design.
-      </li>
-      <li>
-        <strong>Process + Profit Check</strong>
-        Improve efficiency with smart backend changes without extra investment.
-      </li>
-    </ul>
+  <!-- Hero Section -->
+  <section id="home" class="blush-bg py-24 text-center">
+    <div class="container">
+      <h1 class="text-4xl md:text-5xl font-bold mb-6 text-yellow-500">Unlock Hidden Profits in Your Brampton Restaurant</h1>
+      <p class="text-xl mb-8 text-gray-900 hero-text-shadow">Boost sales by 15–30% with menu optimization, Uber Eats/Skip The Dishes strategies, and smart operations.</p>
+      <a href="#contact" class="bg-yellow-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600">Get Your Free Restaurant Health Snapshot</a>
+    </div>
   </section>
 
-  <section id="why">
-    <h2>Why APRA Consulting?</h2>
-    <p>We combine restaurant experience with behavioral science to help you quietly recover lost profit. No hype. Just small changes with measurable results.</p>
+  <!-- Services Section -->
+  <section id="services" class="py-24 blush-bg">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold mb-8">Our Consulting Packages</h2>
+      <p class="text-lg mb-12">Tailored for GTA & Brampton restaurants to boost profits and stand out. Prices subject to customization based on your needs.</p>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <!-- The Foundation -->
+        <div class="border p-8 rounded-lg shadow-soft">
+          <h3 class="text-2xl font-bold mb-4">The Foundation</h3>
+          <p class="text-lg font-semibold">$349 CAD</p>
+          <p class="mb-4">Quick check-up to spot opportunities.</p>
+          <ul class="text-left space-y-2">
+            <li>✅ Competitor Research & Business Health Check</li>
+            <li>✅ Customer Sentiment Analysis</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Get Started</a>
+        </div>
+        <!-- The Growth Engine -->
+        <div class="border p-8 rounded-lg shadow-soft bg-blue-50">
+          <h3 class="text-2xl font-bold mb-4">The Growth Engine</h3>
+          <p class="text-lg font-semibold">$799 CAD</p>
+          <p class="mb-4">Our most popular pick to boost sales.</p>
+          <ul class="text-left space-y-2">
+            <li>✅ All Foundation Services</li>
+            <li>✅ Menu Audit & Optimization</li>
+            <li>✅ Visual/Marketing Guidance</li>
+            <li>✅ Digital Ordering Optimization (Uber Eats, Skip The Dishes, DoorDash)</li>
+            <li>✅ Social Media Content Calendar (1 Month)</li>
+            <li>✅ Observation Study (2 hours, $100/hr)</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Get Started</a>
+        </div>
+        <!-- The Strategic Partner -->
+        <div class="border p-8 rounded-lg shadow-soft">
+          <h3 class="text-2xl font-bold mb-4">The Strategic Partner</h3>
+          <p class="text-lg font-semibold">$1,499–$2,199 CAD</p>
+          <p class="mb-4">Full overhaul for market dominance.</p>
+          <ul class="text-left space-y-2">
+            <li>✅ All Growth Engine Services</li>
+            <li>✅ Revenue Loss/Opportunity Estimation</li>
+            <li>✅ Full Strategy Action Plan</li>
+            <li>✅ Financial Management Tools</li>
+            <li>✅ Community Engagement Plan</li>
+          </ul>
+          <a href="#contact" class="mt-6 inline-block bg-blue-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700">Get Started</a>
+        </div>
+      </div>
+      <!-- Add-Ons -->
+      <div class="mt-12">
+        <h3 class="text-2xl font-bold mb-6">Optional Add-Ons</h3>
+        <ul class="text-left max-w-2xl mx-auto space-y-2">
+          <li>Sensory Experience Consulting (Ambiance, Music, Plating): $400</li>
+          <li>SEO Setup: $300</li>
+          <li>Loyalty Program Setup: $400</li>
+          <li>Bottleneck Improvement Suggestions: $200</li>
+          <li>Extended Social Media Management (3 Months): $800</li>
+          <li>Additional Observation Study Hours: $100/hr</li>
+          <li>Menu Analytics Report (Uber Eats, Skip The Dishes, DoorDash): $150</li>
+        </ul>
+      </div>
+    </div>
   </section>
 
-  <section id="contact">
-    <h2>Get in Touch</h2>
-    <p>Email us directly at <a href="mailto:hello@apraconsulting.ca">hello@apraconsulting.ca</a> or use the form below.</p>
-    <form action="https://formspree.io/f/xdkzawpd" method="POST">
-      <label>
-        Your Name:
-        <input type="text" name="name" placeholder="Your Name" required>
-      </label>
-      <label>
-        Your Email:
-        <input type="email" name="email" placeholder="Your Email" required>
-      </label>
-      <label>
-        Your Message:
-        <textarea name="message" placeholder="Your Message" required></textarea>
-      </label>
-      <button type="submit">Send Message</button>
-    </form>
+  <!-- Case Studies Section -->
+  <section id="case-studies" class="py-24 blush-bg">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold mb-8">Real Results for Brampton Restaurants</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+        <div class="p-8 bg-white rounded-lg shadow-soft">
+          <h3 class="text-xl font-bold mb-2">Local Brampton Restaurant</h3>
+          <p>Optimized their Uber Eats and Skip The Dishes menus, boosting online orders by 20% in three months.</p>
+          <p class="mt-2 italic">"APRA’s menu tweaks made our online orders soar!" – Local Owner</p>
+        </div>
+        <div class="p-8 bg-white rounded-lg shadow-soft">
+          <h3 class="text-xl font-bold mb-2">Your Success Story</h3>
+          <p>We’re ready to help your restaurant achieve 15–30% sales growth with tailored solutions.</p>
+          <a href="#contact" class="mt-4 inline-block text-blue-900 underline">Get Your Free Snapshot</a>
+        </div>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>&copy; 2025 APRA Consulting. All rights reserved.</p>
+  <!-- About Section -->
+  <section id="about" class="py-24 blush-bg">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold mb-8">Why APRA Consulting?</h2>
+      <p class="text-lg max-w-2xl mx-auto mb-6">We’re Brampton locals who know the restaurant game inside out. Using menu psychology, customer behavior insights, and operational know-how, we help small and ethnic restaurants in the GTA boost profits by 15–30%. Our hands-on approach—tweaking Uber Eats/Skip The Dishes menus, spotting bottlenecks—delivers results without the fluff.</p>
+      <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Brampton restaurant interior" class="mx-auto mt-6 rounded-lg shadow-soft max-w-md">
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="py-24 bg-blue-900 text-white">
+    <div class="container text-center">
+      <h2 class="text-3xl font-bold mb-8">Get Your Free Restaurant Health Snapshot</h2>
+      <p class="text-lg mb-6">See how your restaurant can boost sales with a free 1-page report. No obligation, just insights.</p>
+      <form action="https://formspree.io/f/xdkzawpd" method="POST" class="max-w-lg mx-auto">
+        <input type="text" name="name" placeholder="Your Name" class="w-full p-3 mb-4 rounded border border-gray-300" required>
+        <input type="email" name="email" placeholder="Your Email" class="w-full p-3 mb-4 rounded border border-gray-300" required>
+        <input type="text" name="restaurant" placeholder="Restaurant Name" class="w-full p-3 mb-4 rounded border border-gray-300" required>
+        <button type="submit" class="bg-yellow-500 text-black px-8 py-4 rounded-lg font-semibold hover:bg-yellow-600">Send Me My Free Snapshot</button>
+      </form>
+      <p class="mt-6">Or email us at <a href="mailto:hello@apraconsulting.ca" class="underline">hello@apraconsulting.ca</a></p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white p-6 text-center">
+    <p>© 2025 APRA Consulting. All rights reserved.</p>
+    <p><a href="https://instagram.com/apraconsulting" class="underline">Follow us on Instagram</a></p>
   </footer>
+
+  <script>
+    // Smooth scrolling for navigation links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        document.querySelector(this.getAttribute('href')).scrollIntoView({
+          behavior: 'smooth'
+        });
+      });
+    });
+  </script>
 </body>
 </html>
-https://formspree.io/f/xdkzawpd
