@@ -1,802 +1,989 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Brampton Restaurant Consulting | APRA Consulting</title>
-  <meta name="description" content="APRA Consulting helps Brampton & GTA restaurants boost profits by 15–30% with menu optimization, Uber Eats/Skip The Dishes strategies, and business health checks. Get a Free Restaurant Health Snapshot!">
-  <meta name="keywords" content="Brampton restaurant consulting, GTA restaurant consulting, restaurant menu optimization, Uber Eats optimization Brampton, Skip The Dishes consulting, restaurant profit consulting, menu psychology GTA">
-  <meta name="author" content="APRA Consulting">
-  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>APRA Consulting | Restaurant Growth Specialists</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
     :root {
-      --primary-blue: #1e3a8a;
-      --accent-orange: #f97316;
-      --warm-beige: #fef7ed;
-      --text-dark: #1f2937;
-      --text-light: #6b7280;
-      --success-green: #059669;
-      --gradient-primary: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-      --gradient-warm: linear-gradient(135deg, #fef7ed 0%, #fed7aa 100%);
+      --cream: #F7F4EE;
+      --warm-white: #FDFBF7;
+      --charcoal: #1C1C1A;
+      --deep: #111110;
+      --gold: #B8924A;
+      --gold-light: #D4AB6A;
+      --gold-muted: #C9A96E22;
+      --stone: #8A8680;
+      --stone-light: #C5C2BC;
+      --border: #E2DDD6;
+      --serif: 'Cormorant Garamond', Georgia, serif;
+      --sans: 'DM Sans', sans-serif;
     }
-    
-    body { 
-      font-family: 'Inter', sans-serif; 
-      scroll-behavior: smooth;
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--cream);
+      color: var(--charcoal);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
     }
-    
-    .font-display { font-family: 'Playfair Display', serif; }
-    
-    .sticky { position: sticky; top: 0; z-index: 50; }
-    
-    .hero-gradient {
-      background: linear-gradient(135deg, #fef7ed 0%, #fed7aa 50%, #fdba74 100%);
-      position: relative;
-      overflow: hidden;
+
+    /* ── NAV ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.25rem 4rem;
+      background: rgba(247, 244, 238, 0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      transition: padding .3s;
     }
-    
-    .hero-gradient::before {
+
+    .nav-logo {
+      display: flex; align-items: center; gap: .75rem;
+      text-decoration: none;
+    }
+    .nav-logo img {
+      height: 38px; width: auto;
+    }
+    .nav-logo-text {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      letter-spacing: .02em;
+    }
+
+    .nav-links {
+      display: flex; gap: 2.5rem; list-style: none;
+    }
+    .nav-links a {
+      text-decoration: none;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--stone);
+      transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--charcoal); }
+
+    .nav-cta {
+      font-size: .78rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      color: var(--warm-white);
+      background: var(--charcoal);
+      padding: .65rem 1.5rem;
+      border-radius: 2px;
+      transition: background .2s;
+    }
+    .nav-cta:hover { background: var(--gold); }
+
+    /* ── HERO ── */
+    #home {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding-top: 80px;
+    }
+
+    .hero-left {
+      display: flex; flex-direction: column; justify-content: center;
+      padding: 8rem 4rem 8rem 4rem;
+    }
+
+    .hero-tag {
+      font-size: .72rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1.5rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .hero-tag::before {
       content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="25" cy="25" r="1" fill="%23000" opacity="0.02"/><circle cx="75" cy="75" r="1" fill="%23000" opacity="0.02"/><circle cx="50" cy="10" r="1" fill="%23000" opacity="0.02"/><circle cx="10" cy="50" r="1" fill="%23000" opacity="0.02"/><circle cx="90" cy="30" r="1" fill="%23000" opacity="0.02"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
-      pointer-events: none;
+      display: block; width: 32px; height: 1px;
+      background: var(--gold);
     }
-    
-    .glass-effect {
-      background: rgba(255, 255, 255, 0.1);
-      backdrop-filter: blur(10px);
-      border: 1px solid rgba(255, 255, 255, 0.2);
+
+    .hero-h1 {
+      font-family: var(--serif);
+      font-size: clamp(3rem, 4.5vw, 5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--deep);
+      margin-bottom: 1.5rem;
     }
-    
-    .card-hover {
-      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    .hero-h1 em {
+      font-style: italic;
+      color: var(--gold);
     }
-    
-    .card-hover:hover {
-      transform: translateY(-8px);
-      box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15);
+
+    .hero-sub {
+      font-size: 1rem;
+      color: var(--stone);
+      max-width: 420px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
     }
-    
+
+    .hero-actions {
+      display: flex; gap: 1rem; flex-wrap: wrap;
+    }
+
     .btn-primary {
-      background: var(--gradient-primary);
-      color: white;
-      padding: 16px 32px;
-      border-radius: 50px;
-      font-weight: 600;
+      display: inline-block;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      box-shadow: 0 10px 30px rgba(30, 58, 138, 0.3);
+      background: var(--charcoal);
+      color: var(--warm-white);
+      padding: .9rem 2rem;
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      border-radius: 2px;
+      transition: background .2s, transform .15s;
     }
-    
-    .btn-primary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 15px 40px rgba(30, 58, 138, 0.4);
-    }
-    
-    .btn-secondary {
-      background: var(--accent-orange);
-      color: white;
-      padding: 14px 28px;
-      border-radius: 50px;
-      font-weight: 600;
+    .btn-primary:hover { background: var(--gold); transform: translateY(-1px); }
+
+    .btn-ghost {
+      display: inline-flex; align-items: center; gap: .5rem;
       text-decoration: none;
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      transition: all 0.3s ease;
-      box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+      color: var(--charcoal);
+      font-size: .8rem;
+      font-weight: 500;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      padding: .9rem 0;
+      border-bottom: 1px solid var(--charcoal);
+      transition: color .2s, border-color .2s;
     }
-    
-    .btn-secondary:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 12px 35px rgba(249, 115, 22, 0.4);
-      background: #ea580c;
+    .btn-ghost:hover { color: var(--gold); border-color: var(--gold); }
+
+    .hero-stats {
+      display: flex; gap: 2.5rem; margin-top: 4rem;
+      padding-top: 2.5rem;
+      border-top: 1px solid var(--border);
     }
-    
-    .section-padding { padding: 100px 0; }
-    
-    .container-custom { 
-      max-width: 1200px; 
-      margin: 0 auto; 
-      padding: 0 24px; 
+    .stat-num {
+      font-family: var(--serif);
+      font-size: 2.2rem;
+      font-weight: 300;
+      color: var(--charcoal);
     }
-    
-    .text-gradient {
-      background: var(--gradient-primary);
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-      background-clip: text;
+    .stat-label {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: .25rem;
     }
-    
-    .nav-link {
-      position: relative;
-      transition: all 0.3s ease;
-    }
-    
-    .nav-link::after {
-      content: '';
-      position: absolute;
-      bottom: -2px;
-      left: 0;
-      width: 0;
-      height: 2px;
-      background: var(--accent-orange);
-      transition: width 0.3s ease;
-    }
-    
-    .nav-link:hover::after {
-      width: 100%;
-    }
-    
-    .stats-counter {
-      font-size: 2.5rem;
-      font-weight: 800;
-      color: var(--primary-blue);
-    }
-    
-    .pricing-card {
-      position: relative;
-      background: white;
-      border-radius: 20px;
-      padding: 40px 30px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-      border: 2px solid transparent;
-    }
-    
-    .pricing-card.featured {
-      background: var(--gradient-primary);
-      color: white;
-      transform: scale(1.05);
-      border-color: var(--accent-orange);
-    }
-    
-    .pricing-card:hover {
-      transform: translateY(-10px);
-      box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
-    }
-    
-    .feature-icon {
-      width: 60px;
-      height: 60px;
-      background: var(--gradient-primary);
-      border-radius: 15px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: white;
-      font-size: 24px;
-      margin-bottom: 20px;
-    }
-    
-    .testimonial-card {
-      background: white;
-      border-radius: 20px;
-      padding: 30px;
-      box-shadow: 0 10px 40px rgba(0, 0, 0, 0.08);
+
+    .hero-right {
       position: relative;
       overflow: hidden;
     }
-    
-    .testimonial-card::before {
-      content: '"';
-      position: absolute;
-      top: 10px;
-      left: 20px;
-      font-size: 80px;
-      color: var(--accent-orange);
-      opacity: 0.3;
-      font-family: 'Playfair Display', serif;
+    .hero-right img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      filter: saturate(.85) brightness(.92);
     }
-    
-    .mobile-menu {
-      display: none;
-    }
-    
-    @media (max-width: 768px) {
-      .hero-gradient h1 {
-        font-size: 2.5rem;
-      }
-      
-      .section-padding {
-        padding: 60px 0;
-      }
-      
-      .container-custom {
-        padding: 0 16px;
-      }
-      
-      .pricing-card.featured {
-        transform: none;
-      }
-      
-      .mobile-menu {
-        display: block;
-      }
-      
-      .desktop-menu {
-        display: none;
-      }
-      
-      .desktop-menu.mobile-menu-open {
-        display: flex !important;
-      }
-      
-      nav {
-        position: relative;
-      }
-    }
-    
-    .floating-elements {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      overflow: hidden;
-      pointer-events: none;
-    }
-    
-    .floating-elements::before,
-    .floating-elements::after {
+    .hero-right::after {
       content: '';
-      position: absolute;
-      width: 200px;
-      height: 200px;
-      background: rgba(249, 115, 22, 0.1);
+      position: absolute; inset: 0;
+      background: linear-gradient(120deg, var(--cream) 0%, transparent 30%);
+    }
+    .hero-badge {
+      position: absolute; bottom: 3rem; right: 3rem; z-index: 2;
+      background: var(--charcoal);
+      color: var(--warm-white);
+      padding: 1.5rem;
+      border-radius: 2px;
+      font-family: var(--serif);
+      font-size: 1rem;
+      font-style: italic;
+      max-width: 220px;
+      line-height: 1.5;
+    }
+    .hero-badge span {
+      display: block;
+      font-family: var(--sans);
+      font-style: normal;
+      font-size: .68rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--gold-light);
+      margin-top: .5rem;
+    }
+
+    /* ── MARQUEE ── */
+    .marquee-wrap {
+      background: var(--charcoal);
+      padding: 1rem 0;
+      overflow: hidden;
+    }
+    .marquee-track {
+      display: flex; gap: 0;
+      animation: marquee 22s linear infinite;
+      white-space: nowrap;
+    }
+    .marquee-item {
+      display: inline-flex; align-items: center; gap: 2rem;
+      padding: 0 2rem;
+      font-size: .72rem;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: var(--stone-light);
+      font-weight: 400;
+    }
+    .marquee-item::after {
+      content: '◆';
+      color: var(--gold);
+      font-size: .5rem;
+    }
+    @keyframes marquee {
+      from { transform: translateX(0); }
+      to { transform: translateX(-50%); }
+    }
+
+    /* ── SECTION LAYOUT ── */
+    section { padding: 7rem 4rem; }
+
+    .section-tag {
+      font-size: .7rem;
+      letter-spacing: .18em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 500;
+      margin-bottom: 1rem;
+      display: flex; align-items: center; gap: .75rem;
+    }
+    .section-tag::before {
+      content: '';
+      display: block; width: 24px; height: 1px;
+      background: var(--gold);
+    }
+
+    .section-h2 {
+      font-family: var(--serif);
+      font-size: clamp(2.2rem, 3.5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.15;
+      color: var(--deep);
+    }
+    .section-h2 em { font-style: italic; color: var(--gold); }
+
+    /* ── SERVICES ── */
+    #services { background: var(--warm-white); }
+
+    .services-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 5rem;
+    }
+    .services-intro {
+      font-size: .95rem;
+      color: var(--stone);
+      line-height: 1.75;
+    }
+
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: var(--border);
+      border: 1.5px solid var(--border);
+    }
+
+    .service-card {
+      background: var(--warm-white);
+      padding: 2.5rem;
+      transition: background .2s;
+      cursor: default;
+    }
+    .service-card:hover { background: var(--cream); }
+
+    .service-num {
+      font-family: var(--serif);
+      font-size: 3rem;
+      font-weight: 300;
+      color: var(--border);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+    .service-name {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      font-weight: 500;
+      color: var(--charcoal);
+      margin-bottom: .75rem;
+    }
+    .service-desc {
+      font-size: .88rem;
+      color: var(--stone);
+      line-height: 1.7;
+    }
+    .service-icon {
+      width: 36px; height: 36px;
       border-radius: 50%;
-      animation: float 6s ease-in-out infinite;
+      background: var(--gold-muted);
+      border: 1px solid var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      margin-bottom: 1.5rem;
+      color: var(--gold);
+      font-size: 1rem;
     }
-    
-    .floating-elements::before {
-      top: 10%;
-      right: 10%;
-      animation-delay: 0s;
+
+    /* ── HOW IT WORKS ── */
+    #about { background: var(--cream); }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: center;
     }
-    
-    .floating-elements::after {
-      bottom: 10%;
-      left: 10%;
-      animation-delay: 3s;
+
+    .about-img {
+      position: relative;
     }
-    
-    @keyframes float {
-      0%, 100% { transform: translateY(0px); }
-      50% { transform: translateY(-20px); }
+    .about-img img {
+      width: 100%; aspect-ratio: 4/5;
+      object-fit: cover;
+      filter: saturate(.8);
+      border-radius: 2px;
     }
-    
+    .about-accent {
+      position: absolute;
+      bottom: -2rem; right: -2rem;
+      width: 160px; height: 160px;
+      border: 1.5px solid var(--gold);
+      border-radius: 2px;
+      z-index: -1;
+    }
+    .about-accent2 {
+      position: absolute;
+      top: -1.5rem; left: -1.5rem;
+      width: 80px; height: 80px;
+      background: var(--gold);
+      opacity: .15;
+      border-radius: 2px;
+    }
+
+    .about-content {}
+    .about-body {
+      font-size: .95rem;
+      color: var(--stone);
+      line-height: 1.8;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .process-steps {
+      display: flex; flex-direction: column; gap: 1.5rem;
+      margin-top: 2.5rem;
+    }
+    .process-step {
+      display: flex; gap: 1.25rem; align-items: flex-start;
+      padding-bottom: 1.5rem;
+      border-bottom: 1px solid var(--border);
+    }
+    .process-step:last-child { border-bottom: none; }
+    .step-num {
+      font-family: var(--serif);
+      font-size: 1.2rem;
+      font-weight: 500;
+      color: var(--gold);
+      min-width: 28px;
+    }
+    .step-info {}
+    .step-title {
+      font-weight: 500;
+      font-size: .9rem;
+      color: var(--charcoal);
+      margin-bottom: .25rem;
+    }
+    .step-desc {
+      font-size: .83rem;
+      color: var(--stone);
+      line-height: 1.6;
+    }
+
+    /* ── RESULTS ── */
+    #case-studies { background: var(--charcoal); }
+
+    .results-header {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: end;
+      margin-bottom: 5rem;
+    }
+    .results-header .section-h2 { color: var(--warm-white); }
+    .results-intro {
+      font-size: .9rem;
+      color: var(--stone-light);
+      line-height: 1.75;
+    }
+
+    .results-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5px;
+      background: #333;
+    }
+
+    .result-card {
+      background: #222;
+      padding: 2.5rem;
+      display: flex; flex-direction: column;
+      transition: background .2s;
+    }
+    .result-card:hover { background: #282828; }
+
+    .result-quote {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-style: italic;
+      color: var(--stone-light);
+      line-height: 1.7;
+      flex: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .result-metric {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 300;
+      color: var(--gold-light);
+      line-height: 1;
+    }
+    .result-metric-label {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--stone);
+      margin-top: .35rem;
+    }
+    .result-source {
+      display: flex; align-items: center; gap: .75rem;
+      margin-top: 1.5rem;
+      padding-top: 1.25rem;
+      border-top: 1px solid #333;
+    }
+    .result-avatar {
+      width: 36px; height: 36px;
+      border-radius: 50%;
+      background: var(--gold);
+      opacity: .25;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--serif);
+      font-size: 1rem;
+      color: var(--warm-white);
+    }
+    .result-name {
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--stone-light);
+    }
+    .result-role {
+      font-size: .7rem;
+      color: var(--stone);
+      margin-top: .15rem;
+    }
+
+    /* ── CONTACT ── */
+    #contact { background: var(--warm-white); }
+
+    .contact-wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 6rem;
+      align-items: start;
+    }
+
+    .contact-left {}
+    .contact-body {
+      font-size: .95rem;
+      color: var(--stone);
+      line-height: 1.8;
+      margin: 1.5rem 0 2.5rem;
+    }
+
+    .contact-info {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+    .contact-link {
+      display: flex; align-items: center; gap: .75rem;
+      text-decoration: none;
+      font-size: .88rem;
+      color: var(--stone);
+      transition: color .2s;
+    }
+    .contact-link:hover { color: var(--gold); }
+    .contact-link-icon {
+      width: 32px; height: 32px;
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      display: flex; align-items: center; justify-content: center;
+      font-size: .85rem;
+    }
+
+    .contact-form {
+      display: flex; flex-direction: column; gap: 1rem;
+    }
+
+    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+
+    .form-field {
+      display: flex; flex-direction: column; gap: .4rem;
+    }
+    .form-field label {
+      font-size: .72rem;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      font-weight: 500;
+      color: var(--stone);
+    }
+    .form-field input,
+    .form-field textarea,
+    .form-field select {
+      border: 1px solid var(--border);
+      background: var(--cream);
+      color: var(--charcoal);
+      padding: .85rem 1rem;
+      font-family: var(--sans);
+      font-size: .9rem;
+      border-radius: 2px;
+      outline: none;
+      transition: border-color .2s;
+    }
+    .form-field input:focus,
+    .form-field textarea:focus,
+    .form-field select:focus {
+      border-color: var(--gold);
+    }
+    .form-field textarea { resize: vertical; min-height: 120px; }
+
+    .form-submit {
+      align-self: flex-start;
+      cursor: pointer;
+      border: none;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--deep);
+      padding: 4rem;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 4rem;
+      align-items: center;
+      border-top: 1px solid #222;
+    }
+
+    .footer-logo {
+      display: flex; align-items: center; gap: .75rem;
+      margin-bottom: .75rem;
+    }
+    .footer-logo img { height: 30px; filter: brightness(0) invert(1); opacity: .7; }
+    .footer-logo-text {
+      font-family: var(--serif);
+      font-size: 1.1rem;
+      color: var(--stone-light);
+    }
+    .footer-tagline {
+      font-size: .8rem;
+      color: var(--stone);
+      max-width: 340px;
+      line-height: 1.6;
+    }
+
+    .footer-links {
+      display: flex; flex-direction: column; align-items: flex-end; gap: .75rem;
+    }
+    .footer-links a {
+      font-size: .78rem;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--stone);
+      text-decoration: none;
+      transition: color .2s;
+    }
+    .footer-links a:hover { color: var(--gold); }
+
+    .footer-bottom {
+      background: var(--deep);
+      padding: 1.25rem 4rem;
+      border-top: 1px solid #1a1a18;
+      display: flex; justify-content: space-between; align-items: center;
+    }
+    .footer-copy {
+      font-size: .72rem;
+      color: #444;
+      letter-spacing: .06em;
+    }
+
+    /* ── DIVIDER ── */
+    .gold-line {
+      display: block;
+      width: 48px; height: 1px;
+      background: var(--gold);
+      margin: 2rem 0;
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 900px) {
+      nav { padding: 1.1rem 1.5rem; }
+      .nav-links, .nav-cta { display: none; }
+      #home { grid-template-columns: 1fr; min-height: auto; }
+      .hero-left { padding: 6rem 1.5rem 3rem; }
+      .hero-right { height: 55vw; }
+      section { padding: 5rem 1.5rem; }
+      .services-header, .about-grid, .results-header, .contact-wrap { grid-template-columns: 1fr; gap: 2rem; }
+      .services-grid, .results-grid { grid-template-columns: 1fr; }
+      .form-row { grid-template-columns: 1fr; }
+      footer { grid-template-columns: 1fr; gap: 2rem; padding: 3rem 1.5rem; }
+      .footer-links { align-items: flex-start; }
+      .footer-bottom { padding: 1.25rem 1.5rem; flex-direction: column; gap: .5rem; text-align: center; }
+    }
+
+    /* ── FADE IN ── */
     .fade-in {
       opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.6s ease;
+      transform: translateY(24px);
+      transition: opacity .7s ease, transform .7s ease;
     }
-    
-    .fade-in.visible {
-      opacity: 1;
-      transform: translateY(0);
-    }
+    .fade-in.visible { opacity: 1; transform: none; }
   </style>
 </head>
-<body class="bg-gray-50">
-  <!-- Navigation -->
-  <nav class="bg-white shadow-lg sticky top-0 z-50">
-    <div class="container-custom">
-      <div class="flex justify-between items-center py-4">
-        <div class="flex items-center space-x-3">
-          <img src="apra-logo.jpg" alt="APRA Consulting" class="h-12 w-auto max-w-12 object-contain">
-          <h1 class="text-2xl font-bold text-gradient font-display">APRA Consulting</h1>
-        </div>
-        
-        <!-- Desktop Menu -->
-        <ul class="desktop-menu flex space-x-8">
-          <li><a href="#home" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Home</a></li>
-          <li><a href="#services" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Services</a></li>
-          <li><a href="#about" class="nav-link text-gray-700 hover:text-blue-600 font-medium">About</a></li>
-          <li><a href="#case-studies" class="nav-link text-gray-700 hover:text-blue-600 font-medium">Case Studies</a></li>
-          <li><a href="#contact" class="btn-secondary">Get Started <i class="fas fa-arrow-right"></i></a></li>
-        </ul>
-        
-        <!-- Mobile Menu Button -->
-        <button class="mobile-menu text-gray-700 text-2xl">
-          <i class="fas fa-bars"></i>
-        </button>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#home" class="nav-logo">
+    <img src="https://www.apraconsulting.ca/apra-logo.jpg" alt="APRA Consulting" onerror="this.style.display='none'" />
+    <span class="nav-logo-text">APRA Consulting</span>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">Our Approach</a></li>
+    <li><a href="#case-studies">Results</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Get in Touch</a>
+</nav>
+
+<!-- HERO -->
+<section id="home" style="padding:0;">
+  <div class="hero-left">
+    <p class="hero-tag">Restaurant Growth Consultancy</p>
+    <h1 class="hero-h1">
+      Unlock the <em>hidden profits</em><br>in your restaurant
+    </h1>
+    <p class="hero-sub">
+      We help independent and ethnic restaurants across the GTA grow revenue through menu strategy, delivery platform optimization, and operational clarity — without the guesswork.
+    </p>
+    <div class="hero-actions">
+      <a href="#contact" class="btn-primary">Request a Free Health Snapshot</a>
+      <a href="#services" class="btn-ghost">See Our Services →</a>
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">15–30%</div>
+        <div class="stat-label">Typical Sales Lift</div>
+      </div>
+      <div>
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Restaurants Served</div>
+      </div>
+      <div>
+        <div class="stat-num">5+</div>
+        <div class="stat-label">Years Experience</div>
       </div>
     </div>
-  </nav>
-
-  <!-- Hero Section -->
-  <section id="home" class="hero-gradient section-padding relative">
-    <div class="floating-elements"></div>
-    <div class="container-custom text-center relative z-10">
-      <div class="fade-in">
-        <h1 class="text-5xl md:text-6xl font-bold mb-6 text-gray-900 font-display leading-tight">
-          Unlock Hidden Profits in Your <span class="text-gradient">Brampton Restaurant</span>
-        </h1>
-        <p class="text-xl mb-8 text-gray-700 max-w-3xl mx-auto leading-relaxed">
-          Boost sales by <strong>15–30%</strong> with proven menu optimization, delivery platform strategies, and smart operations that actually work.
-        </p>
-        
-        <!-- Stats Bar -->
-        <div class="grid grid-cols-3 gap-8 mb-10 max-w-2xl mx-auto">
-          <div class="text-center">
-            <div class="stats-counter">15-30%</div>
-            <div class="text-sm text-gray-600 font-medium">Sales Increase</div>
-          </div>
-          <div class="text-center">
-            <div class="stats-counter">50+</div>
-            <div class="text-sm text-gray-600 font-medium">Restaurants Helped</div>
-          </div>
-          <div class="text-center">
-            <div class="stats-counter">24h</div>
-            <div class="text-sm text-gray-600 font-medium">Response Time</div>
-          </div>
-        </div>
-        
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a href="#contact" class="btn-primary">
-            <i class="fas fa-chart-line"></i>
-            Get Your Free Restaurant Health Snapshot
-          </a>
-          <a href="#services" class="text-gray-700 hover:text-blue-600 font-medium flex items-center gap-2">
-            <i class="fas fa-play-circle"></i>
-            See How It Works
-          </a>
-        </div>
-      </div>
+  </div>
+  <div class="hero-right">
+    <img src="https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80" alt="Fine dining restaurant" />
+    <div class="hero-badge">
+      "Our online orders grew by 20% in just three months."
+      <span>— GTA Restaurant Owner</span>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Services Section -->
-  <section id="services" class="section-padding bg-white">
-    <div class="container-custom">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-4xl font-bold mb-6 font-display text-gray-900">Our Consulting Packages</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">
-          Tailored for GTA & Brampton restaurants to boost profits and stand out. 
-          Prices subject to customization based on your needs.
-        </p>
-      </div>
-      
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
-        <!-- The Foundation -->
-        <div class="pricing-card card-hover fade-in">
-          <div class="feature-icon">
-            <i class="fas fa-foundation"></i>
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee-track">
+    <span class="marquee-item">Menu Optimization</span>
+    <span class="marquee-item">Delivery Platform Strategy</span>
+    <span class="marquee-item">Customer Sentiment Analysis</span>
+    <span class="marquee-item">Competitor Research</span>
+    <span class="marquee-item">Revenue Opportunity Analysis</span>
+    <span class="marquee-item">Social Media Strategy</span>
+    <span class="marquee-item">Operational Consulting</span>
+    <span class="marquee-item">Loyalty Programs</span>
+    <span class="marquee-item">Menu Optimization</span>
+    <span class="marquee-item">Delivery Platform Strategy</span>
+    <span class="marquee-item">Customer Sentiment Analysis</span>
+    <span class="marquee-item">Competitor Research</span>
+    <span class="marquee-item">Revenue Opportunity Analysis</span>
+    <span class="marquee-item">Social Media Strategy</span>
+    <span class="marquee-item">Operational Consulting</span>
+    <span class="marquee-item">Loyalty Programs</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="services-header fade-in">
+    <div>
+      <p class="section-tag">What We Do</p>
+      <h2 class="section-h2">Tailored strategies for <em>real growth</em></h2>
+    </div>
+    <p class="services-intro">
+      Every restaurant is different. We start by understanding your specific challenges, then craft a strategy that fits your concept, market, and goals — no generic playbooks.
+    </p>
+  </div>
+  <div class="services-grid">
+    <div class="service-card fade-in">
+      <div class="service-num">01</div>
+      <div class="service-name">Business Health Check</div>
+      <p class="service-desc">A deep dive into your competitive landscape, customer sentiment, and operational strengths — identifying the opportunities most restaurants overlook.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-num">02</div>
+      <div class="service-name">Menu Audit & Optimization</div>
+      <p class="service-desc">Using menu psychology and data-driven analysis, we redesign your offerings to improve average order value, reduce complexity, and drive repeat visits.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-num">03</div>
+      <div class="service-name">Delivery Platform Strategy</div>
+      <p class="service-desc">We optimize your Uber Eats, DoorDash, and Skip The Dishes presence — from photography guidance and item descriptions to pricing and ranking tactics.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-num">04</div>
+      <div class="service-name">Marketing & Social Media</div>
+      <p class="service-desc">A structured content calendar, visual identity guidance, and community engagement plan that builds a loyal local following without expensive ad spend.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-num">05</div>
+      <div class="service-name">Financial Clarity</div>
+      <p class="service-desc">We identify revenue leaks, model growth scenarios, and provide tools to track the metrics that actually matter to a restaurant's profitability.</p>
+    </div>
+    <div class="service-card fade-in">
+      <div class="service-num">06</div>
+      <div class="service-name">Full Strategic Partnership</div>
+      <p class="service-desc">An end-to-end engagement combining all our services into a cohesive action plan — for owners who want transformational, lasting results.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT / APPROACH -->
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img fade-in">
+      <div class="about-accent2"></div>
+      <img src="https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=800&q=80" alt="Restaurant consultation" />
+      <div class="about-accent"></div>
+    </div>
+    <div class="about-content fade-in">
+      <p class="section-tag">Our Approach</p>
+      <h2 class="section-h2">Strategy built on <em>observation,</em> not assumption</h2>
+      <p class="about-body">
+        We don't rely on spreadsheets alone. APRA Consulting combines on-site observation, customer behavior research, and platform analytics to give you a complete picture of where your restaurant stands — and a clear path to where it can go.
+      </p>
+      <span class="gold-line"></span>
+      <div class="process-steps">
+        <div class="process-step">
+          <span class="step-num">I.</span>
+          <div class="step-info">
+            <div class="step-title">Discovery & Analysis</div>
+            <div class="step-desc">We audit your current position: competitors, online reviews, menu performance, and delivery data.</div>
           </div>
-          <h3 class="text-2xl font-bold mb-4 font-display">The Foundation</h3>
-          <div class="text-3xl font-bold text-blue-600 mb-2">$349 <span class="text-lg font-normal text-gray-500">CAD</span></div>
-          <p class="text-gray-600 mb-6">Quick check-up to spot opportunities.</p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-green-500 mt-1"></i>
-              <span>Competitor Research & Business Health Check</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-green-500 mt-1"></i>
-              <span>Customer Sentiment Analysis</span>
-            </li>
-          </ul>
-          <a href="#contact" class="btn-secondary w-full justify-center">Get Started</a>
         </div>
-        
-        <!-- The Growth Engine -->
-        <div class="pricing-card featured card-hover fade-in">
-          <div class="absolute top-0 right-0 bg-orange-500 text-white px-4 py-2 rounded-bl-lg rounded-tr-lg text-sm font-bold">
-            MOST POPULAR
+        <div class="process-step">
+          <span class="step-num">II.</span>
+          <div class="step-info">
+            <div class="step-title">On-Site Observation</div>
+            <div class="step-desc">We visit your location, experience it as a customer, and identify operational bottlenecks first-hand.</div>
           </div>
-          <div class="feature-icon bg-white text-blue-600">
-            <i class="fas fa-rocket"></i>
-          </div>
-          <h3 class="text-2xl font-bold mb-4 font-display">The Growth Engine</h3>
-          <div class="text-3xl font-bold mb-2">$799 <span class="text-lg font-normal opacity-80">CAD</span></div>
-          <p class="opacity-90 mb-6">Our most popular pick to boost sales.</p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
-              <span>All Foundation Services</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
-              <span>Menu Audit & Optimization</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
-              <span>Visual/Marketing Guidance</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
-              <span>Digital Ordering Optimization</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
-              <span>Social Media Content Calendar</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-orange-300 mt-1"></i>
-              <span>Observation Study (2 hours)</span>
-            </li>
-          </ul>
-          <a href="#contact" class="btn-secondary w-full justify-center bg-white text-blue-600 hover:bg-gray-100">Get Started</a>
         </div>
-        
-        <!-- The Strategic Partner -->
-        <div class="pricing-card card-hover fade-in">
-          <div class="feature-icon">
-            <i class="fas fa-crown"></i>
+        <div class="process-step">
+          <span class="step-num">III.</span>
+          <div class="step-info">
+            <div class="step-title">Strategy & Action Plan</div>
+            <div class="step-desc">You receive a clear, prioritized roadmap with specific actions, expected outcomes, and implementation support.</div>
           </div>
-          <h3 class="text-2xl font-bold mb-4 font-display">The Strategic Partner</h3>
-          <div class="text-3xl font-bold text-blue-600 mb-2">$1,499–$2,199 <span class="text-lg font-normal text-gray-500">CAD</span></div>
-          <p class="text-gray-600 mb-6">Full overhaul for market dominance.</p>
-          <ul class="space-y-3 mb-8">
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-green-500 mt-1"></i>
-              <span>All Growth Engine Services</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-green-500 mt-1"></i>
-              <span>Revenue Loss/Opportunity Estimation</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-green-500 mt-1"></i>
-              <span>Full Strategy Action Plan</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-green-500 mt-1"></i>
-              <span>Financial Management Tools</span>
-            </li>
-            <li class="flex items-start gap-3">
-              <i class="fas fa-check-circle text-green-500 mt-1"></i>
-              <span>Community Engagement Plan</span>
-            </li>
-          </ul>
-          <a href="#contact" class="btn-secondary w-full justify-center">Get Started</a>
         </div>
-      </div>
-      
-      <!-- Add-Ons -->
-      <div class="bg-gray-50 rounded-3xl p-8 fade-in">
-        <h3 class="text-3xl font-bold mb-6 text-center font-display text-gray-900">Optional Add-Ons</h3>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-4xl mx-auto">
-          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
-            <span class="font-medium">Sensory Experience Consulting</span>
-            <span class="font-bold text-blue-600">$400</span>
-          </div>
-          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
-            <span class="font-medium">SEO Setup</span>
-            <span class="font-bold text-blue-600">$300</span>
-          </div>
-          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
-            <span class="font-medium">Loyalty Program Setup</span>
-            <span class="font-bold text-blue-600">$400</span>
-          </div>
-          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
-            <span class="font-medium">Bottleneck Improvement</span>
-            <span class="font-bold text-blue-600">$200</span>
-          </div>
-          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
-            <span class="font-medium">Extended Social Media (3 Months)</span>
-            <span class="font-bold text-blue-600">$800</span>
-          </div>
-          <div class="bg-white p-4 rounded-xl flex justify-between items-center">
-            <span class="font-medium">Menu Analytics Report</span>
-            <span class="font-bold text-blue-600">$150</span>
+        <div class="process-step">
+          <span class="step-num">IV.</span>
+          <div class="step-info">
+            <div class="step-title">Ongoing Partnership</div>
+            <div class="step-desc">We track results, refine the strategy, and remain available as your business evolves.</div>
           </div>
         </div>
       </div>
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- Case Studies Section -->
-  <section id="case-studies" class="section-padding bg-gray-50">
-    <div class="container-custom">
-      <div class="text-center mb-16 fade-in">
-        <h2 class="text-4xl font-bold mb-6 font-display text-gray-900">Real Results for Brampton Restaurants</h2>
-        <p class="text-xl text-gray-600 max-w-3xl mx-auto">Success stories from restaurants just like yours</p>
-      </div>
-      
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 max-w-6xl mx-auto">
-        <!-- Success Story Card -->
-        <div class="bg-white rounded-2xl shadow-xl p-8 border border-gray-100 hover:shadow-2xl transition-all duration-300 fade-in">
-          <div class="flex items-start mb-6">
-            <div class="w-16 h-16 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center text-white font-bold text-xl shadow-lg">
-              L
-            </div>
-            <div class="ml-6 flex-1">
-              <h3 class="text-2xl font-bold text-gray-900 mb-2">Local Brampton Restaurant</h3>
-              <div class="flex text-yellow-400 mb-3">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-            </div>
-          </div>
-          
-          <blockquote class="text-gray-700 text-lg leading-relaxed mb-6 italic">
-            "Optimized their Uber Eats and Skip The Dishes menus, boosting online orders by 20% in three months. APRA's menu tweaks made our online orders soar!"
-          </blockquote>
-          
-          <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-6 rounded-xl border border-green-200">
-            <div class="flex items-center justify-center">
-              <div class="text-center">
-                <div class="text-4xl font-bold text-green-600 mb-1">+20%</div>
-                <div class="text-green-700 font-medium">Online Orders Increase</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <!-- Call to Action Card -->
-        <div class="bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-2xl shadow-xl p-8 text-white relative overflow-hidden fade-in">
-          <div class="absolute inset-0 bg-black bg-opacity-10"></div>
-          <div class="relative z-10">
-            <div class="flex items-start mb-6">
-              <div class="w-16 h-16 bg-white bg-opacity-20 backdrop-blur-sm rounded-2xl flex items-center justify-center text-white font-bold text-xl">
-                Y
-              </div>
-              <div class="ml-6 flex-1">
-                <h3 class="text-2xl font-bold mb-2">Your Success Story</h3>
-                <div class="text-blue-200 text-lg">Ready to be our next case study?</div>
-              </div>
-            </div>
-            
-            <p class="text-lg leading-relaxed mb-8 text-blue-100">
-              We're ready to help your restaurant achieve 15–30% sales growth with tailored solutions designed specifically for Brampton restaurants.
-            </p>
-            
-            <a href="#contact" class="inline-flex items-center gap-3 bg-white text-blue-700 hover:bg-blue-50 font-semibold py-4 px-8 rounded-xl transition-all duration-300 hover:shadow-lg hover:scale-105">
-              <i class="fas fa-rocket text-lg"></i>
-              Start Your Success Story
-            </a>
-          </div>
-        </div>
-      </div>
+<!-- RESULTS -->
+<section id="case-studies">
+  <div class="results-header fade-in">
+    <div>
+      <p class="section-tag" style="color:var(--gold-light);">Results</p>
+      <h2 class="section-h2">What our clients <em>experience</em></h2>
     </div>
-  </section>
-
-  <!-- About Section -->
-  <section id="about" class="section-padding bg-white">
-    <div class="container-custom">
-      <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-        <div class="fade-in">
-          <h2 class="text-4xl font-bold mb-6 font-display text-gray-900">Why APRA Consulting?</h2>
-          <p class="text-lg text-gray-600 mb-6 leading-relaxed">
-            We're Brampton locals who know the restaurant game inside out. Using menu psychology, customer behavior insights, and operational know-how, we help small and ethnic restaurants in the GTA boost profits by 15–30%.
-          </p>
-          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-            Our hands-on approach—tweaking Uber Eats/Skip The Dishes menus, spotting bottlenecks—delivers results without the fluff.
-          </p>
-          
-          <div class="grid grid-cols-2 gap-6 mb-8">
-            <div class="text-center">
-              <div class="text-3xl font-bold text-blue-600 mb-2">5+ Years</div>
-              <div class="text-sm text-gray-600">Industry Experience</div>
-            </div>
-            <div class="text-center">
-              <div class="text-3xl font-bold text-blue-600 mb-2">Local</div>
-              <div class="text-sm text-gray-600">Brampton Expertise</div>
-            </div>
-          </div>
-          
-          <a href="#contact" class="btn-primary">
-            <i class="fas fa-handshake"></i>
-            Work With Us
-          </a>
-        </div>
-        
-        <div class="fade-in">
-          <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
-               alt="Modern restaurant interior" 
-               class="rounded-3xl shadow-2xl w-full h-auto object-cover">
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Contact Section -->
-  <section id="contact" class="section-padding bg-gradient-to-br from-blue-900 to-blue-800 text-white relative overflow-hidden">
-    <div class="absolute inset-0 bg-black opacity-10"></div>
-    <div class="container-custom relative z-10">
-      <div class="text-center mb-12 fade-in">
-        <h2 class="text-4xl font-bold mb-6 font-display">Get Your Free Restaurant Health Snapshot</h2>
-        <p class="text-xl opacity-90 max-w-2xl mx-auto">
-          See how your restaurant can boost sales with a free 1-page report. No obligation, just insights.
-        </p>
-      </div>
-      
-      <div class="max-w-2xl mx-auto">
-        <div class="bg-white bg-opacity-10 backdrop-filter backdrop-blur-lg rounded-3xl p-8 fade-in">
-          <form action="https://formspree.io/f/xdkzawpd" method="POST" class="space-y-6">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-              <div>
-                <label class="block text-sm font-medium mb-2">Your Name</label>
-                <input type="text" name="name" required
-                       class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400">
-              </div>
-              <div>
-                <label class="block text-sm font-medium mb-2">Your Email</label>
-                <input type="email" name="email" required
-                       class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400">
-              </div>
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-2">Restaurant Name</label>
-              <input type="text" name="restaurant" required
-                     class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400">
-            </div>
-            <div>
-              <label class="block text-sm font-medium mb-2">Tell us about your biggest challenge</label>
-              <textarea name="challenge" rows="4"
-                        class="w-full p-4 rounded-xl bg-white bg-opacity-20 border border-white border-opacity-30 text-white placeholder-white placeholder-opacity-70 focus:outline-none focus:ring-2 focus:ring-orange-400"
-                        placeholder="e.g., Low online orders, menu not converting, competitor pressure..."></textarea>
-            </div>
-            <button type="submit" class="w-full btn-secondary bg-orange-500 hover:bg-orange-600 justify-center text-lg py-4">
-              <i class="fas fa-paper-plane"></i>
-              Send Me My Free Snapshot
-            </button>
-          </form>
-        </div>
-        
-        <div class="text-center mt-8 fade-in">
-          <p class="text-lg opacity-90 mb-4">Or contact us directly:</p>
-          <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
-            <a href="mailto:hello@apraconsulting.ca" class="flex items-center gap-2 text-orange-300 hover:text-orange-200">
-              <i class="fas fa-envelope"></i>
-              hello@apraconsulting.ca
-            </a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gray-900 text-white py-12">
-    <div class="container-custom">
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+    <p class="results-intro">
+      We work with independent restaurants, ethnic food concepts, and growing GTA operators. Here's what happens when strategy meets execution.
+    </p>
+  </div>
+  <div class="results-grid">
+    <div class="result-card fade-in">
+      <p class="result-quote">"APRA's menu adjustments and Uber Eats optimization turned our struggling delivery presence into a real revenue stream — quickly."</p>
+      <div class="result-metric">+20%</div>
+      <div class="result-metric-label">Online order growth in 3 months</div>
+      <div class="result-source">
+        <div class="result-avatar">R</div>
         <div>
-          <div class="flex items-center space-x-3 mb-4">
-            <img src="apra-logo.jpg" alt="APRA Consulting" class="h-10 w-auto max-w-10 object-contain">
-            <h3 class="text-xl font-bold font-display">APRA Consulting</h3>
-          </div>
-          <p class="text-gray-400">Helping Brampton & GTA restaurants boost profits through smart strategy and proven results.</p>
+          <div class="result-name">Independent Restaurant Owner</div>
+          <div class="result-role">Greater Toronto Area</div>
         </div>
-        
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Quick Links</h4>
-          <ul class="space-y-2">
-            <li><a href="#services" class="text-gray-400 hover:text-white">Our Services</a></li>
-            <li><a href="#about" class="text-gray-400 hover:text-white">About Us</a></li>
-            <li><a href="#case-studies" class="text-gray-400 hover:text-white">Case Studies</a></li>
-            <li><a href="#contact" class="text-gray-400 hover:text-white">Contact</a></li>
-          </ul>
-        </div>
-        
-        <div>
-          <h4 class="text-lg font-semibold mb-4">Follow Us</h4>
-          <div class="flex space-x-4">
-            <a href="https://instagram.com/apraconsulting" class="text-gray-400 hover:text-white text-xl">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://linkedin.com/company/apraconsulting" class="text-gray-400 hover:text-white text-xl">
-              <i class="fab fa-linkedin"></i>
-            </a>
-            <a href="https://facebook.com/apraconsulting" class="text-gray-400 hover:text-white text-xl">
-              <i class="fab fa-facebook"></i>
-            </a>
-          </div>
-        </div>
-      </div>
-      
-      <div class="border-t border-gray-800 pt-8 text-center">
-        <p class="text-gray-400">© 2025 APRA Consulting. All rights reserved.</p>
       </div>
     </div>
-  </footer>
+    <div class="result-card fade-in">
+      <p class="result-quote">"We finally understood which menu items were costing us money and which ones we were underpricing. The clarity alone was worth it."</p>
+      <div class="result-metric">+18%</div>
+      <div class="result-metric-label">Average order value increase</div>
+      <div class="result-source">
+        <div class="result-avatar">M</div>
+        <div>
+          <div class="result-name">Family Restaurant Owner</div>
+          <div class="result-role">Greater Toronto Area</div>
+        </div>
+      </div>
+    </div>
+    <div class="result-card fade-in">
+      <p class="result-quote">"The competitor analysis opened our eyes to what we were missing. We repositioned our concept and saw a difference within weeks."</p>
+      <div class="result-metric">+27%</div>
+      <div class="result-metric-label">Revenue growth over 6 months</div>
+      <div class="result-source">
+        <div class="result-avatar">A</div>
+        <div>
+          <div class="result-name">Ethnic Cuisine Restaurant</div>
+          <div class="result-role">Greater Toronto Area</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
 
-  <script>
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-      anchor.addEventListener('click', function(e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-          target.scrollIntoView({
-            behavior: 'smooth',
-            block: 'start'
-          });
-        }
-      });
-    });
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-wrap">
+    <div class="contact-left fade-in">
+      <p class="section-tag">Get Started</p>
+      <h2 class="section-h2">Let's talk about your <em>restaurant</em></h2>
+      <p class="contact-body">
+        Start with a free Restaurant Health Snapshot — a one-page analysis of your current position and the highest-impact opportunities available to you. No obligation, just clarity.
+      </p>
+      <div class="contact-info">
+        <a href="mailto:hello@apraconsulting.ca" class="contact-link">
+          <span class="contact-link-icon">✉</span>
+          hello@apraconsulting.ca
+        </a>
+        <a href="#contact" class="contact-link">
+          <span class="contact-link-icon">⊙</span>
+          Serving restaurants across the Greater Toronto Area
+        </a>
+        <a href="#contact" class="contact-link">
+          <span class="contact-link-icon">◷</span>
+          Response within 24 hours
+        </a>
+      </div>
+    </div>
+    <div class="fade-in">
+      <div class="contact-form">
+        <div class="form-row">
+          <div class="form-field">
+            <label>Your Name</label>
+            <input type="text" placeholder="Jane Smith" />
+          </div>
+          <div class="form-field">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@yourrestaurant.com" />
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Restaurant Name</label>
+          <input type="text" placeholder="The Spice Garden" />
+        </div>
+        <div class="form-field">
+          <label>What's your biggest challenge?</label>
+          <textarea placeholder="Tell us about your restaurant and where you'd like to grow..."></textarea>
+        </div>
+        <a href="mailto:hello@apraconsulting.ca" class="btn-primary form-submit" style="text-align:center; display:block;">
+          Send My Free Health Snapshot Request
+        </a>
+        <p style="font-size:.75rem; color:var(--stone); text-align:center;">No sales pitch. Just insights tailored to your restaurant.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-    // Intersection Observer for fade-in animations
-    const observerOptions = {
-      threshold: 0.1,
-      rootMargin: '0px 0px -50px 0px'
-    };
+<!-- FOOTER -->
+<footer>
+  <div>
+    <div class="footer-logo">
+      <img src="https://www.apraconsulting.ca/apra-logo.jpg" alt="APRA" onerror="this.style.display='none'" />
+      <span class="footer-logo-text">APRA Consulting</span>
+    </div>
+    <p class="footer-tagline">Helping GTA restaurants grow through smart strategy, menu psychology, and proven operational improvements.</p>
+  </div>
+  <div class="footer-links">
+    <a href="#services">Services</a>
+    <a href="#about">Our Approach</a>
+    <a href="#case-studies">Results</a>
+    <a href="#contact">Contact</a>
+    <a href="mailto:hello@apraconsulting.ca">hello@apraconsulting.ca</a>
+  </div>
+</footer>
+<div class="footer-bottom">
+  <span class="footer-copy">© 2025 APRA Consulting. All rights reserved.</span>
+  <span class="footer-copy">Greater Toronto Area, Ontario</span>
+</div>
 
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('visible');
-        }
-      });
-    }, observerOptions);
-
-    document.querySelectorAll('.fade-in').forEach(el => {
-      observer.observe(el);
-    });
-
-    // Mobile menu toggle
-    const mobileMenuBtn = document.querySelector('.mobile-menu');
-    const desktopMenu = document.querySelector('.desktop-menu');
-    
-    mobileMenuBtn?.addEventListener('click', () => {
-      // Toggle mobile menu visibility
-      desktopMenu.classList.toggle('mobile-menu-open');
-      if (desktopMenu.classList.contains('mobile-menu-open')) {
-        desktopMenu.style.display = 'block';
-        desktopMenu.style.position = 'absolute';
-        desktopMenu.style.top = '100%';
-        desktopMenu.style.left = '0';
-        desktopMenu.style.right = '0';
-        desktopMenu.style.backgroundColor = 'white';
-        desktopMenu.style.boxShadow = '0 4px 6px rgba(0, 0, 0, 0.1)';
-        desktopMenu.style.flexDirection = 'column';
-        desktopMenu.style.padding = '1rem';
-        desktopMenu.style.gap = '1rem';
-      } else {
-        desktopMenu.style.display = 'none';
+<script>
+  // Fade-in on scroll
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+        obs.unobserve(e.target);
       }
     });
+  }, { threshold: 0.12 });
+  document.querySelectorAll('.fade-in').forEach(el => obs.observe(el));
 
-    // Counter animation for stats
-    const animateCounter = (element, target) => {
-      let current = 0;
-      const increment = target / 50;
-      const timer = setInterval(() => {
-        current += increment;
-        if (current >= target) {
-          element.textContent = target + (element.textContent.includes('%') ? '%' : '');
-          clearInterval(timer);
-        } else {
-          element.textContent = Math.floor(current) + (element.textContent.includes('%') ? '%' : '');
-        }
-      }, 40);
-    };
+  // Nav shrink on scroll
+  window.addEventListener('scroll', () => {
+    document.querySelector('nav').style.padding =
+      window.scrollY > 60 ? '.85rem 4rem' : '1.25rem 4rem';
+  });
+</script>
 
-    // Animate stats when they come into view
-    const statsObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          const counters = entry.target.querySelectorAll('.stats-counter');
-          counters.forEach(counter => {
-            const text = counter.textContent;
-            if (text.includes('15-30')) {
-              counter.textContent = '15-30%';
-            } else if (text.includes('50')) {
-              animateCounter(counter, 50);
-            } else if (text.includes('24')) {
-              counter.textContent = '24h';
-            }
-          });
-          statsObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.5 });
-
-    const statsSection = document.querySelector('.grid.grid-cols-3');
-    if (statsSection) {
-      statsObserver.observe(statsSection);
-    }
-  </script>
 </body>
 </html>
